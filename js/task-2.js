@@ -1,28 +1,33 @@
-const images = [
-  {
-    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'White and Black Long Fur Cat',
-  },
-  {
-    url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
-  },
-  {
-    url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Group of Horses Running',
-  },
-];
+*
+ * Adding an events-listener to each element
+ */
 
-const listElm = document.querySelector('.gallery');
+//? Get the color of the square that was clicked
 
-const imagesList = images
-  .map(
-    newArray =>
-      `<li class="gallery-list"><img class="gallery-img" src="${newArray.url}" alt="${newArray.alt}"></li>`
-  )
-  .join('');
+// const boxesEl = document.querySelectorAll('.js-box');
 
-listElm.insertAdjacentHTML('afterbegin', imagesList);
+// console.log(boxesEl);
 
+// boxesEl.forEach(boxEl => {
+//   boxEl.addEventListener('click', event => {
+//     console.log(event.target.dataset.color);
+//   });
+// });
 
-// listElm.innerHTML = imagesList;
+/*
+ * Event delegation
+ */
+
+//? Get the color of the square that was clicked
+
+const containerEl = document.querySelector('.js-container');
+
+containerEl.addEventListener('click', event => {
+  // if (event.target.classList.contains('js-box')) {
+  //   console.log(event.target.dataset.color);
+  // }
+
+  if (event.target !== event.currentTarget) {
+    console.log(event.target.dataset.color);
+  }
+});

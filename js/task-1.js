@@ -1,20 +1,30 @@
-const itemElm = document.querySelector('#categories');
-const listElm = itemElm.querySelectorAll('.item');
-console.log(`Number of categories: ${listElm.length}`);
+/*
+ * Event Bubbling
+ * event.target - target (originating) element - (innermost)
+ * event.currentTarget - current element where the event listener caught the event
+ */
 
-listElm.forEach(li => {
-  const titleElm = li.querySelector('h2').textContent;
-  console.log(`Category: ${titleElm}`);
-  const liElm = li.querySelectorAll('ul li');
-  console.log(`Elements: ${liElm.length}`);
+const parentEl = document.querySelector('.js-parent');
+const childEl = document.querySelector('.js-child');
+const innerChildEl = document.querySelector('.js-inner-child');
+
+parentEl.addEventListener('click', event => {
+  console.group('Parent click!');
+  console.log('event.target: ', event.target);
+  console.log('event.currentTarget: ', event.currentTarget);
+  console.groupEnd();
 });
 
+childEl.addEventListener('click', event => {
+  console.group('Child click!');
+  console.log('event.target: ', event.target);
+  console.log('event.currentTarget: ', event.currentTarget);
+  console.groupEnd();
+});
 
-
-// for (let i = 0; i < listElm.length; i++) {
-//   const li = listElm[i];
-//   const titleElm = li.querySelector('h2').textContent;
-//   console.log(`Category: ${titleElm}`);
-//   const liElm = li.querySelectorAll('ul li');
-//   console.log(`Elements: ${liElm.length}`);
-// }
+innerChildEl.addEventListener('click', event => {
+  console.group('Inner child click!');
+  console.log('event.target: ', event.target);
+  console.log('event.currentTarget: ', event.currentTarget);
+  console.groupEnd();
+});
