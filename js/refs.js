@@ -1,0 +1,1 @@
+export const modalBtnEl = document.querySelector(".js-modal-open");
