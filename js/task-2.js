@@ -1,6 +1,6 @@
-*
- * Adding an events-listener to each element
- */
+// *
+//  * Adding an events-listener to each element
+//  */
 
 //? Get the color of the square that was clicked
 
